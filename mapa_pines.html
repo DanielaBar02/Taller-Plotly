@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa con Pines – Plotly.js</title>
+
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <link  rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link  href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="mapa_pines.css"/>
+</head>
+<body>
+
+  <header>
+    <h1>📍 Taller Plotly - Pines</h1>
+    <span>Taller Ingeniería de Software II</span>
+  </header>
+
+  <div class="toolbar">
+    <label for="pin-label">Etiqueta:</label>
+    <input type="text" id="pin-label" placeholder="Ej: Bogotá" />
+
+    <label for="pin-color">Color:</label>
+    <input type="color" id="pin-color" value="#00e5ff"/>
+
+    <button class="btn btn-danger"  onclick="clearPins()">🗑 Limpiar todo</button>
+    <button class="btn btn-neutral" onclick="exportPins()">💾 Exportar JSON</button>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <p>Haz <strong>clic en el mapa</strong> para colocar un pin &nbsp;|&nbsp; Pines activos: <span id="pin-count">0</span></p>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="panel">
+    <h2>Pines colocados</h2>
+    <div id="pin-list">
+      <span style="color:var(--muted);font-size:0.75rem;font-family:'Space Mono',monospace">Ningún pin aún...</span>
+    </div>
+  </div>
+
+  <div id="chart-section">
+    <h2>📊 Distribución de pines (Plotly.js)</h2>
+    <div id="chart"></div>
+  </div>
+
+  <script src="mapa_pines.js"></script>
+
+</body>
+</html>
